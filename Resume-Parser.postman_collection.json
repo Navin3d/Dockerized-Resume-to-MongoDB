@@ -1,0 +1,377 @@
+{
+	"info": {
+		"_postman_id": "7ec0b8c5-e954-429e-ab22-b9a419f7f232",
+		"name": "Resume-Parser",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17195439"
+	},
+	"item": [
+		{
+			"name": "Python",
+			"item": [
+				{
+					"name": "Convert Docx2pdf",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/navindurai/Downloads/hrlo.docx"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/convert/docx/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"convert",
+								"docx",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Convert Doc2pdf",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/navindurai/Downloads/hello.doc"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/convert/doc/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"convert",
+								"doc",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a file",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/file/hello-conv.pdf/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"file",
+								"hello-conv.pdf",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Parse A Resume V2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/navindurai/Documents/Resumes/Sample_resume2.pdf"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/navindurai/Documents/Resumes/Ramanjaneyulu_java Lead_Trysol.pdf",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/pdf/single/v2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"pdf",
+						"single",
+						"v2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get A File",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/pdf/single?name=Resume-Navin-Durai.pdf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pdf",
+						"single"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Resume-Navin-Durai.pdf"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Parse Multiple Resume",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "files",
+							"type": "file",
+							"src": "/Users/navindurai/Documents/Resumes/Resume-Navin-Durai.pdf",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/pdf/multiple",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"pdf",
+						"multiple"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get A Skill",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/skill/52d3581c-cf3f-4ccf-8bc3-531e34d18ebb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"skill",
+						"52d3581c-cf3f-4ccf-8bc3-531e34d18ebb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Skill",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"title\": \"Spring Boot\",\n        \"description\": \"Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications\",\n        \"keywords\": [\n            \"spring\",\n            \"boot\",\n            \"spring boot\",\n            \"spring_boot\"\n        ],\n        \"users\": []\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/skill",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"skill"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Skills",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/skill",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"skill"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete All Users",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FInd Skill By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/skill/name/Spring Boot",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"skill",
+						"name",
+						"Spring Boot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FInd Skill By Id Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/skill/name/Spring Boot",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"skill",
+						"name",
+						"Spring Boot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Parse A Resume V1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": "/Users/navindurai/Documents/Resumes/Ramanjaneyulu_java Lead_Trysol.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/pdf/single",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"pdf",
+						"single"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

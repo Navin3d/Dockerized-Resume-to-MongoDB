@@ -1,0 +1,31 @@
+version: '3'
+services:
+  react-js:
+    build:
+      context: .
+      dockerfile: "Dockerfile.Reactjs"
+    ports:
+      - "3000:3000"
+    restart: "unless-stopped"
+    depends_on:
+      - "node-js"
+  node-js:
+    build:
+      context: .
+      dockerfile: "Dockerfile.Nodejs"
+    ports:
+      - "3001:3001"
+    depends_on:
+      - "mongodb-server"
+    restart: "always"
+    volumes:
+      - /usr/resume_parser/Node_Js/node_modules
+      - ./Node_Js:/usr/resume_parser/Node_Js
+  mongodb-server:
+    image: "mongo"
+    restart: "always"
+    environment:
+      MONGO_INITDB_ROOT_PASSWORD: mongopw
+      MONGO_INITDB_ROOT_USERNAME: docker
+    ports:
+      - "27017:27017"
