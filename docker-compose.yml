@@ -2,16 +2,18 @@ version: '3'
 services:
   react-js:
     build:
-      context: .
+      context: ./React_Js
       dockerfile: "Dockerfile.Reactjs"
     ports:
       - "3000:3000"
     restart: "unless-stopped"
     depends_on:
       - "node-js"
+    environment:
+      BASEURL: http://localhost:3000
   node-js:
     build:
-      context: .
+      context: ./Node_Js
       dockerfile: "Dockerfile.Nodejs"
     ports:
       - "3001:3001"
@@ -21,6 +23,10 @@ services:
     volumes:
       - /usr/resume_parser/Node_Js/node_modules
       - ./Node_Js:/usr/resume_parser/Node_Js
+    environment:
+      PORTNO: 3001
+      DATABASE_URL: mongodb://docker:mongopw@mongodb-server:27017
+      BASE_URL: http://node-js:3001
   mongodb-server:
     image: "mongo"
     restart: "always"

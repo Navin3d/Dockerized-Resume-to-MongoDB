@@ -2,10 +2,8 @@ FROM node:18-alpine
 
 WORKDIR /usr/resume_parser/Node_Js/
 
-COPY ./Node_Js/package.json ./package.json
+COPY ./package.json ./package.json
 RUN npm i
-COPY ./Node_Js .
-
-EXPOSE 3001
+COPY . .
 
 CMD ["npm", "start"]
