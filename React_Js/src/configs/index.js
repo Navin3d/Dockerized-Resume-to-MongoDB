@@ -1,1 +1,1 @@
-export const BASEURL = process.env.BASEURL;
+export const BASEURL = "/api";

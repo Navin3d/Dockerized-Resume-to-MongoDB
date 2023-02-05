@@ -39,7 +39,7 @@ const INITIAL_SKILLS = [
 ];
 
 function ProfilesList() {
-  const fakeDataUrl = `http://localhost:3001/user`;
+  const fakeDataUrl = `${BASEURL}/user`;
   const [data, setData] = useState([]);
   const [list, setList] = useState([]);
   const [skills, setSkills] = useState(INITIAL_SKILLS);
@@ -54,7 +54,7 @@ function ProfilesList() {
     }
   }
   const initSkills = async () => {
-    const response = await axios.get("http://localhost:3001/skill");
+    const response = await axios.get(`${BASEURL}/skill`);
     setSkills(response.data);
   }
   const onSearch = (value) => {

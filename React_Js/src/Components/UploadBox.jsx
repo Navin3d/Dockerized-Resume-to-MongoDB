@@ -8,7 +8,7 @@ function UploadBox() {
   const props = {
     name: 'file',
     multiple: true,
-    action: `${BASEURL}/pdf/single/v2`,
+    action: `${BASEURL}/pdf/single`,
     onChange(info) {
       const { status } = info.file;
       if (status !== 'uploading') {

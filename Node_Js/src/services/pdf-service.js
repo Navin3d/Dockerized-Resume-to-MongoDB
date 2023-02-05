@@ -36,7 +36,7 @@ const jsonFormatter = async (req, res) => {
     const returnValue = {};
     const TOPSECTIONNAME = "boomerism";
     const headers = ["summary", "experience", "education", "licenses & certifications", "skills", "honors & awards", "profile info", "projects", "acheivements"];
-    const data = await extractTextFromPdf(req.files.files["data"]);
+    const data = await extractTextFromPdf(req.files.file["data"]);
     var activeHeader = TOPSECTIONNAME;
     for (let pageIndex in data.pages) {
         let page = data.pages[pageIndex];

@@ -66,14 +66,14 @@ const saveAUser = async (user) => {
                     if (user["user_id"] != saved.user_id) {
                         skill.users.push(saved);
                         // console.log(skill);
-                        // skill.save();
-                        finalUpdatedSkills.push(skill);
+                        skill.save();
+                        // finalUpdatedSkills.push(skill);
                     }
                 }
             }
         }
     }
-    waiter = await addUsersToManySkills(finalUpdatedSkills);
+    // waiter = await addUsersToManySkills(finalUpdatedSkills);
     return saved;
 }
 
